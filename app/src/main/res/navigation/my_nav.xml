@@ -9,15 +9,32 @@
         android:id="@+id/mainFragment"
         android:name="ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+
+        <action
+            android:id="@+id/action_mainFragment_to_fragment1"
+            app:destination="@id/fragment1" />
+        <action
+            android:id="@+id/action_mainFragment_to_fragment2"
+            app:destination="@id/fragment2" />
+    </fragment>
     <fragment
         android:id="@+id/fragment1"
         android:name="ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder.Fragment1"
         android:label="fragment_1"
-        tools:layout="@layout/fragment_1" />
+        tools:layout="@layout/fragment_1" >
+
+        <action
+            android:id="@+id/action_fragment1_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fragment2"
         android:name="ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder.Fragment2"
         android:label="fragment_2"
-        tools:layout="@layout/fragment_2" />
+        tools:layout="@layout/fragment_2" >
+        <action
+            android:id="@+id/action_fragment2_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>
