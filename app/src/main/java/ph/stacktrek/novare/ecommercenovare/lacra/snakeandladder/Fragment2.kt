@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 class Fragment2 : Fragment() {
 
@@ -15,7 +16,17 @@ class Fragment2 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_2, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_2, container, false)
+        val toMainBtn2 : Button = view.findViewById(R.id.backBtn2)
+
+        toMainBtn2.setOnClickListener(){
+            val fragment = MainFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.fragmentContainerView,fragment)?.commit()
+        }
+
+        return view
     }
 
 

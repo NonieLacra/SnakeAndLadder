@@ -15,6 +15,15 @@ class Fragment1 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_1, container, false)
+        val view = inflater.inflate(R.layout.fragment_1, container, false)
+        val toMainBtn1 : Button = view.findViewById(R.id.backBtn1)
+
+        toMainBtn1.setOnClickListener(){
+            val fragment = MainFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.fragmentContainerView,fragment)?.commit()
+        }
+
+        return view
     }
 }
