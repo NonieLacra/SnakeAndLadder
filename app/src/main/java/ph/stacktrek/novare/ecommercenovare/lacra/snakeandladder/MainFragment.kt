@@ -32,6 +32,10 @@ class MainFragment : Fragment() {
             transaction?.replace(R.id.fragmentContainerView,fragment)?.commit()
         }
 
+        toFrag3Btn.setOnClickListener(){
+            onDestroy()
+        }
+
         return view
     }
 
