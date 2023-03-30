@@ -86,7 +86,7 @@
         android:id="@+id/player1_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player One:"
+        android:text="Player Oneee:"
         android:textColor="@color/purple_500"
         android:textSize="25sp"
         android:textStyle="bold"
