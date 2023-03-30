@@ -33,7 +33,7 @@ class MainFragment : Fragment() {
         }
 
         toFrag3Btn.setOnClickListener(){
-            onDestroy()
+            System.exit(1);
         }
 
         return view

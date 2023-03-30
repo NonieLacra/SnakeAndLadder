@@ -28,4 +28,9 @@
         tools:layout="@layout/fragment_2" >
 
     </fragment>
+    <fragment
+        android:id="@+id/fragment3"
+        android:name="ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder.Fragment3"
+        android:label="fragment_3"
+        tools:layout="@layout/fragment_3" />
 </navigation>
