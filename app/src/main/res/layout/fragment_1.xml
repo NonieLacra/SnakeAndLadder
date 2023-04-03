@@ -3,114 +3,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@color/md_theme_light_inversePrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment1">
 
     <!-- TODO: Update blank fragment layout -->
 
 
-    <TextView
-        android:id="@+id/fragment1Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Player Profile"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.166" />
-
-    <Button
-        android:id="@+id/backBtn1"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/black"
-        android:text="BACK"
-        android:textColor="#FAF6F6"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/playgamebtn"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="584dp"
-        android:background="@color/black"
+        android:layout_marginTop="548dp"
+        android:background="@drawable/btn_design"
+        android:fontFamily="sans-serif-condensed"
         android:text="Start Game"
         android:textColor="#FAF6F6"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/player1_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:background="@drawable/text_field"
+        android:drawableLeft="@drawable/player_logo"
+        android:drawablePadding="10dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:paddingLeft="10dp"
+        android:text="Player 1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.332" />
+        app:layout_constraintVertical_bias="0.287" />
 
     <EditText
         android:id="@+id/player2_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:background="@drawable/text_field"
+        android:drawableLeft="@drawable/player_logo"
+        android:paddingLeft="10dp"
+        android:drawablePadding="10dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="Player 2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.565" />
+        app:layout_constraintTop_toTopOf="@id/player1_field"
+        app:layout_constraintVertical_bias="0.187" />
 
-    <TextView
-        android:id="@+id/player1_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Player One:"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
+    <ImageButton
+        android:id="@+id/backBtn1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/btn_design"
+        android:src="?attr/actionModeCloseDrawable"
+        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" />
-
-    <TextView
-        android:id="@+id/player2_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Player Two:"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.556" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

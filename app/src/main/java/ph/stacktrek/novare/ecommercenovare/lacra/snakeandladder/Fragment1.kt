@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -18,7 +19,7 @@ class Fragment1 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_1, container, false)
-        val toMainBtn1 : Button = view.findViewById(R.id.backBtn1)
+        val toMainBtn1 : ImageButton = view.findViewById(R.id.backBtn1)
         val playGameBtn : Button = view.findViewById(R.id.playgamebtn)
 
         playGameBtn.setOnClickListener{

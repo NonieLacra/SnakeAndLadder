@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 
 class Fragment2 : Fragment() {
 
@@ -18,7 +19,7 @@ class Fragment2 : Fragment() {
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_2, container, false)
-        val toMainBtn2 : Button = view.findViewById(R.id.backBtn2)
+        val toMainBtn2 : ImageButton = view.findViewById(R.id.backBtn2)
 
         toMainBtn2.setOnClickListener(){
             val fragment = MainFragment()
