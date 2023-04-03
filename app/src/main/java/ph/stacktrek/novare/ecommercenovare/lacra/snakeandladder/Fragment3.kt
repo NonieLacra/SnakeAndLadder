@@ -24,10 +24,12 @@ class Fragment3 : Fragment() {
 
         val diceImage = view.findViewById<ImageView>(R.id.dice)
         val rollBtn = view.findViewById<Button>(R.id.rollButton)
+        val rollText = view.findViewById<TextView>(R.id.rollResult)
 
 
         rollBtn.setOnClickListener {
             val random = Random.nextInt(1, 7)
+            rollText.text = "You rolled a $random"
             val drawableResources = when (random){
                 1 -> R.drawable.dice1
                 2 -> R.drawable.dice2

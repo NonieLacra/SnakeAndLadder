@@ -8,27 +8,50 @@
 
 
     <ImageView
+        android:id="@+id/board"
+        android:layout_width="413dp"
+        android:layout_height="457dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/board"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113" />
+
+    <TextView
+        android:id="@+id/rollResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click the button to roll the dice"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.693" />
+
+    <ImageView
         android:id="@+id/dice"
         android:layout_width="110dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="70dp"
         android:importantForAccessibility="no"
+        android:src="@drawable/dice1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:src="@drawable/dice1"
-        />
-
+        app:layout_constraintVertical_bias="0.95" />
 
     <Button
         android:id="@+id/rollButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:src="@drawable/dice1"
         android:text="ROLL"
         android:textSize="20dp"
