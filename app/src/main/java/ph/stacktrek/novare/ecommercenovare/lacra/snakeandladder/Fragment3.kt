@@ -15,7 +15,7 @@ import kotlin.random.Random
 
 class Fragment3 : Fragment() {
 
-    private var totalScore = 0
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,17 +24,29 @@ class Fragment3 : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_3, container, false)
 
+
         val diceImage = view.findViewById<ImageView>(R.id.dice)
+        val player1Image = view.findViewById<ImageView>(R.id.player1)
         val rollBtn = view.findViewById<Button>(R.id.rollButton)
         val rollText = view.findViewById<TextView>(R.id.rollResult)
+        val boardImage = view.findViewById<ImageView>(R.id.boardImage)
+
+        val snakeHead = intArrayOf(11,27,41,44,69,78,88,91,98)
+        val snakeTail = intArrayOf(7,3,17,39,31,56,51,68,89,29)
+        val ladderTop = intArrayOf(29,36,48,59,75,86,89,95,99)
+        val ladderBottom = intArrayOf(8,26,32,23,45,74,70,64,80)
+
+        var currentPos = 0
+
 
 
         rollBtn.setOnClickListener {
-            val random = Random.nextInt(1, 7)
-            totalScore += random
-            val rollString = "You rolled a $random. You are now in tile $totalScore"
-            rollText.text = rollString
-            val drawableResources = when (random){
+            val diceRoll = Random.nextInt(1, 7)
+
+
+            currentPos += diceRoll
+
+            val drawableResources = when (diceRoll){
                 1 -> R.drawable.dice1
                 2 -> R.drawable.dice2
                 3 -> R.drawable.dice3
@@ -44,15 +56,62 @@ class Fragment3 : Fragment() {
             }
             diceImage.setImageResource(drawableResources)
 
-            if (totalScore >= 100)
-            {
-                rollText.text = "You win!"
+
+            val boardSize = 10
+
+
+
+            for(i in snakeHead.indices){
+                if(currentPos == snakeHead[i]){
+                    currentPos = snakeTail[i]
+                }
             }
 
+            for(i in ladderBottom.indices){
+                if(currentPos == ladderBottom[i]){
+                    currentPos = ladderTop[i]
+                }
+            }
 
+            val rollString = "You rolled a $diceRoll. You are now in tile $currentPos"
+            rollText.text = rollString
 
+            if(currentPos >= 100)
+            {
+                rollText.text = "You win!"
+                currentPos = 100;
+
+            }
+
+        boardImage.post{
+
+            val boardWidth = boardImage.width
+            val boardHeight = boardImage.height
+
+            val direction = if((currentPos - 1) /  10 % 2 == 0) {
+                1
+            }
+            else{
+                -1
+            }
+
+            val xPosition = if(direction == 1){
+                ((currentPos - 1) % boardSize) * boardWidth / boardSize
+                }
+            else
+            {
+                (boardSize - (currentPos - 1) % boardSize - 1) * boardWidth / boardSize
+            }
+
+            val yPosition = ((boardSize + 2) - (currentPos - 1) / boardSize) * boardHeight / boardSize
+
+            player1Image.x = xPosition.toFloat()
+            player1Image.y = yPosition.toFloat()
 
         }
+
+        }
+
         return view
     }
     }

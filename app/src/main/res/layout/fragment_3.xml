@@ -6,18 +6,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment3">
 
-
     <ImageView
-        android:id="@+id/board"
-        android:layout_width="413dp"
-        android:layout_height="457dp"
+        android:id="@+id/boardImage"
+        android:layout_width="415dp"
+        android:layout_height="410dp"
+        android:layout_marginTop="100dp"
         android:importantForAccessibility="no"
         android:src="@drawable/board"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.113" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/player1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/pawn_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.731" />
 
     <TextView
         android:id="@+id/rollResult"
@@ -27,10 +40,10 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.693" />
+        app:layout_constraintVertical_bias="0.677" />
 
     <ImageView
         android:id="@+id/dice"
@@ -41,25 +54,23 @@
         android:src="@drawable/dice1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <Button
         android:id="@+id/rollButton"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/dice1"
         android:text="ROLL"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="@id/dice"
-        app:layout_constraintTop_toBottomOf="@id/dice"
 
 
-        />
+        app:layout_constraintTop_toBottomOf="@id/dice" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
