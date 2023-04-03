@@ -5,15 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.findFragment
+
 import kotlin.random.Random
 
 
 class Fragment3 : Fragment() {
 
+    private var totalScore = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +31,9 @@ class Fragment3 : Fragment() {
 
         rollBtn.setOnClickListener {
             val random = Random.nextInt(1, 7)
-            rollText.text = "You rolled a $random"
+            totalScore += random
+            val rollString = "You rolled a $random. You are now in tile $totalScore"
+            rollText.text = rollString
             val drawableResources = when (random){
                 1 -> R.drawable.dice1
                 2 -> R.drawable.dice2
@@ -39,6 +43,15 @@ class Fragment3 : Fragment() {
                 else -> R.drawable.dice6
             }
             diceImage.setImageResource(drawableResources)
+
+            if (totalScore >= 100)
+            {
+                rollText.text = "You win!"
+            }
+
+
+
+
         }
         return view
     }
