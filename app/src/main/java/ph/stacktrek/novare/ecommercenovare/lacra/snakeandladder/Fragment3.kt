@@ -1,5 +1,6 @@
 package ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import org.w3c.dom.Text
 
 import kotlin.random.Random
 
@@ -30,6 +32,16 @@ class Fragment3 : Fragment() {
         val rollBtn = view.findViewById<Button>(R.id.rollButton)
         val rollText = view.findViewById<TextView>(R.id.rollResult)
         val boardImage = view.findViewById<ImageView>(R.id.boardImage)
+
+        val player1Text = view.findViewById<TextView>(R.id.player1Display)
+        val player2Text = view.findViewById<TextView>(R.id.player2Display)
+
+        val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val player1Name = sharedPreferences.getString("Player 1", "")
+        val player2Name = sharedPreferences.getString("Player 2", "")
+        player1Text.text = player1Name
+        player2Text.text = player2Name
+
 
         val snakeHead = intArrayOf(11,27,41,44,69,78,88,91,98)
         val snakeTail = intArrayOf(7,3,17,39,31,56,51,68,89,29)
@@ -73,7 +85,7 @@ class Fragment3 : Fragment() {
                 }
             }
 
-            val rollString = "You rolled a $diceRoll. You are now in tile $currentPos"
+            val rollString = "$player1Name rolled a $diceRoll. You are now in tile $currentPos"
             rollText.text = rollString
 
             if(currentPos >= 100)
