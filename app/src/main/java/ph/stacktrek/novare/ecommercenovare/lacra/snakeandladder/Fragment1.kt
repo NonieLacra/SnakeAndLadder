@@ -1,7 +1,7 @@
 package ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder
 
 import android.content.Context
-import android.content.Intent
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import androidx.appcompat.app.AppCompatActivity
+
 
 
 class Fragment1 : Fragment() {
@@ -28,11 +28,7 @@ class Fragment1 : Fragment() {
 
         playGameBtn.setOnClickListener{
 
-//            val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-//            val editor = sharedPreferences.edit()
-//            editor.putString("Player 1", player1Name.toString())
-//            editor.putString("Player 2", player2Name.toString())
-//            editor.apply()
+
 
             val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()

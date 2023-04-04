@@ -2,5 +2,8 @@
     <string name="app_name">SnakeAndLadder</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dialogTitle">Game Winner</string>
+    <string name="dialogMessage">You WIN!</string>
+    <string name="newGameButton">Play Again</string>
 
 </resources>

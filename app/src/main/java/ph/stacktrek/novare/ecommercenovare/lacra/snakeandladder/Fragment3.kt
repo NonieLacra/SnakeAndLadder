@@ -1,7 +1,7 @@
 package ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder
 
+import android.app.AlertDialog
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,12 +11,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import org.w3c.dom.Text
 
 import kotlin.random.Random
 
 
 class Fragment3 : Fragment() {
+
+    private var player1Name: String? = null
+    private var player2Name: String? = null
 
 
     override fun onCreateView(
@@ -46,8 +48,9 @@ class Fragment3 : Fragment() {
         var player2Score: Int = 0
 
         val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        val player1Name = sharedPreferences.getString("Player 1", "")
-        val player2Name = sharedPreferences.getString("Player 2", "")
+        player1Name = sharedPreferences.getString("Player 1", "")
+        player2Name = sharedPreferences.getString("Player 2", "")
+
         player1Text.text = player1Name
         player2Text.text = player2Name
 
@@ -59,31 +62,6 @@ class Fragment3 : Fragment() {
 
         var player1Pos = 0
         var player2Pos = 0
-
-
-        if (player1Score >= 100) {
-            rollText.text = "$player1Name wins!"
-            player1Pos = 100;
-            player1Score = 100;
-
-            rollBtn.isEnabled = false
-            rollBtn.alpha = 0.5f
-            rollBtn.setTextColor(Color.GRAY)
-
-
-        }
-        else if (player2Score >= 100) {
-            rollText.text = "$player2Name wins!"
-            player2Pos = 100;
-            player2Score = 100;
-
-            rollBtn.isEnabled = false
-            rollBtn.alpha = 0.5f
-            rollBtn.setTextColor(Color.GRAY)
-
-        }
-
-
 
 
 
@@ -100,15 +78,17 @@ class Fragment3 : Fragment() {
                 player1Pos += diceRoll
                 player1Score += diceRoll
 
-
+                if(player1Score >= 100){
+                    winnerDialog(player1Name.toString())
+                }
 
                 val drawableResources = when (diceRoll) {
-                    1 -> R.drawable.dice1
-                    2 -> R.drawable.dice2
-                    3 -> R.drawable.dice3
-                    4 -> R.drawable.dice4
-                    5 -> R.drawable.dice5
-                    else -> R.drawable.dice6
+                    1 -> R.drawable.dice11
+                    2 -> R.drawable.dice22
+                    3 -> R.drawable.dice33
+                    4 -> R.drawable.dice44
+                    5 -> R.drawable.dice55
+                    else -> R.drawable.dice66
                 }
                 diceImage.setImageResource(drawableResources)
 
@@ -175,15 +155,17 @@ class Fragment3 : Fragment() {
                 player2Pos += diceRoll
                 player2Score += diceRoll
 
-
+                if(player2Score >= 100){
+                    winnerDialog(player2Name.toString())
+                }
 
                 val drawableResources = when (diceRoll) {
-                    1 -> R.drawable.dice1
-                    2 -> R.drawable.dice2
-                    3 -> R.drawable.dice3
-                    4 -> R.drawable.dice4
-                    5 -> R.drawable.dice5
-                    else -> R.drawable.dice6
+                    1 -> R.drawable.dice11
+                    2 -> R.drawable.dice22
+                    3 -> R.drawable.dice33
+                    4 -> R.drawable.dice44
+                    5 -> R.drawable.dice55
+                    else -> R.drawable.dice66
                 }
                 diceImage.setImageResource(drawableResources)
 
@@ -249,5 +231,26 @@ class Fragment3 : Fragment() {
         return view
     }
 
+    private fun winnerDialog(winnerName: String){
+        val alertDialog = AlertDialog.Builder(requireContext())
+            .setTitle("GAME WINNER")
+            .setMessage("$winnerName Wins!")
+            .setPositiveButton(R.string.newGameButton) { _, _ ->
+                startNewGame()
+            }
+            .setCancelable(false)
+            .create()
+            alertDialog.show()
+            }
+
+
+
+    private fun startNewGame(){
+        val fragment = MainFragment()
+        val transaction = fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.fragmentContainerView,fragment)?.commit()
     }
+    }
+
+
 
