@@ -13,14 +13,14 @@
         android:id="@+id/playgamebtn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="592dp"
+        android:layout_marginTop="640dp"
         android:background="@drawable/btn_design"
         android:fontFamily="sans-serif-condensed"
         android:text="Start Game"
         android:textColor="#FAF6F6"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,11 +37,11 @@
         android:paddingLeft="10dp"
         android:text="Player 1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintVertical_bias="0.44" />
 
     <EditText
         android:id="@+id/player2_field"
@@ -55,11 +55,11 @@
         android:paddingLeft="10dp"
         android:text="Player 2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/player1_field"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintVertical_bias="0.182" />
 
     <EditText
         android:id="@+id/player3_field"
@@ -73,11 +73,11 @@
         android:paddingLeft="10dp"
         android:text="Player 3"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/player1_field"
-        app:layout_constraintVertical_bias="0.364" />
+        app:layout_constraintVertical_bias="0.366" />
 
     <EditText
         android:id="@+id/player4_field"
@@ -91,11 +91,11 @@
         android:paddingLeft="10dp"
         android:text="Player 4"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/player1_field"
-        app:layout_constraintVertical_bias="0.536" />
+        app:layout_constraintVertical_bias="0.551" />
 
     <ImageButton
         android:id="@+id/backBtn2"
@@ -105,6 +105,17 @@
         android:background="@drawable/btn_design"
         android:src="?attr/actionModeCloseDrawable"
         app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="276dp"
+        android:layout_height="148dp"
+        android:layout_marginTop="132dp"
+        android:src="@drawable/snakedesign"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

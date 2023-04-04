@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_theme_light_inversePrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment3">
 
@@ -54,10 +55,10 @@
         android:src="@drawable/dice1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.962" />
 
     <Button
         android:id="@+id/rollButton"
@@ -65,8 +66,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:src="@drawable/dice1"
+        android:background="@drawable/btn_design"
+        android:fontFamily="sans-serif-condensed"
         android:text="ROLL"
-        android:textSize="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/dice"
 
 
@@ -77,6 +81,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Player1"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.098"
@@ -89,6 +97,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Player2"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.895"
