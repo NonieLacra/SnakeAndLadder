@@ -37,6 +37,9 @@ class Fragment3 : Fragment() {
 
         val player1Text = view.findViewById<TextView>(R.id.player1Display)
         val player2Text = view.findViewById<TextView>(R.id.player2Display)
+        val player1Position = view.findViewById<TextView>(R.id.player1PosDisplay)
+        val player2Position = view.findViewById<TextView>(R.id.player2PosDisplay)
+
 
         var currentPlayer: Int = 1
         var player1Score: Int = 0
@@ -57,27 +60,28 @@ class Fragment3 : Fragment() {
         var player1Pos = 0
         var player2Pos = 0
 
-//        if (player1Score >= 100) {
-//            rollText.text = "$player1Name wins!"
-//            player1Pos = 100;
-//            player1Score = 100;
-//
-//            rollBtn.isEnabled = false
-//            rollBtn.alpha = 0.5f
-//            rollBtn.setTextColor(Color.GRAY)
-//
-//
-//        }
-//        else if (player2Score >= 100) {
-//            rollText.text = "$player2Name wins!"
-//            player2Pos = 100;
-//            player2Score = 100;
-//
-//            rollBtn.isEnabled = false
-//            rollBtn.alpha = 0.5f
-//            rollBtn.setTextColor(Color.GRAY)
-//
-//        }
+
+        if (player1Score >= 100) {
+            rollText.text = "$player1Name wins!"
+            player1Pos = 100;
+            player1Score = 100;
+
+            rollBtn.isEnabled = false
+            rollBtn.alpha = 0.5f
+            rollBtn.setTextColor(Color.GRAY)
+
+
+        }
+        else if (player2Score >= 100) {
+            rollText.text = "$player2Name wins!"
+            player2Pos = 100;
+            player2Score = 100;
+
+            rollBtn.isEnabled = false
+            rollBtn.alpha = 0.5f
+            rollBtn.setTextColor(Color.GRAY)
+
+        }
 
 
 
@@ -93,9 +97,9 @@ class Fragment3 : Fragment() {
                 turnText.text = turnString
 
 
-
                 player1Pos += diceRoll
                 player1Score += diceRoll
+
 
 
                 val drawableResources = when (diceRoll) {
@@ -116,17 +120,22 @@ class Fragment3 : Fragment() {
                 for (i in snakeHead.indices) {
                     if (player1Pos == snakeHead[i]) {
                         player1Pos = snakeTail[i]
+                        player1Score = snakeTail[i]
                     }
                 }
 
                 for (i in ladderBottom.indices) {
                     if (player1Pos == ladderBottom[i]) {
                         player1Pos = ladderTop[i]
+                        player1Score = ladderTop[i]
                     }
                 }
 
                 val rollString = "$player1Name rolled a $diceRoll. You are now in tile $player1Pos"
                 rollText.text = rollString
+
+                val player1ScoreString = "$player1Score"
+                player1Position.text = player1ScoreString
 
 
 
@@ -167,6 +176,7 @@ class Fragment3 : Fragment() {
                 player2Score += diceRoll
 
 
+
                 val drawableResources = when (diceRoll) {
                     1 -> R.drawable.dice1
                     2 -> R.drawable.dice2
@@ -185,17 +195,23 @@ class Fragment3 : Fragment() {
                 for (i in snakeHead.indices) {
                     if (player2Pos == snakeHead[i]) {
                         player2Pos = snakeTail[i]
+                        player2Score = snakeTail[i]
                     }
                 }
 
                 for (i in ladderBottom.indices) {
                     if (player2Pos == ladderBottom[i]) {
                         player2Pos = ladderTop[i]
+                        player2Score = ladderTop[i]
                     }
                 }
 
                 val rollString = "$player2Name rolled a $diceRoll. You are now in tile $player2Pos"
                 rollText.text = rollString
+
+                val player2ScoreString = "$player2Score"
+                player2Position.text = player2ScoreString
+
 
 
 
