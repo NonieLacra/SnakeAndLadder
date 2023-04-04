@@ -1,6 +1,7 @@
 package ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,7 +19,6 @@ import kotlin.random.Random
 class Fragment3 : Fragment() {
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,12 +29,18 @@ class Fragment3 : Fragment() {
 
         val diceImage = view.findViewById<ImageView>(R.id.dice)
         val player1Image = view.findViewById<ImageView>(R.id.player1)
+        val player2Image = view.findViewById<ImageView>(R.id.player2)
         val rollBtn = view.findViewById<Button>(R.id.rollButton)
         val rollText = view.findViewById<TextView>(R.id.rollResult)
+        val turnText = view.findViewById<TextView>(R.id.playerTurn)
         val boardImage = view.findViewById<ImageView>(R.id.boardImage)
 
         val player1Text = view.findViewById<TextView>(R.id.player1Display)
         val player2Text = view.findViewById<TextView>(R.id.player2Display)
+
+        var currentPlayer: Int = 1
+        var player1Score: Int = 0
+        var player2Score: Int = 0
 
         val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
         val player1Name = sharedPreferences.getString("Player 1", "")
@@ -48,82 +54,184 @@ class Fragment3 : Fragment() {
         val ladderTop = intArrayOf(29,36,48,59,75,86,89,95,99)
         val ladderBottom = intArrayOf(8,26,32,23,45,74,70,64,80)
 
-        var currentPos = 0
+        var player1Pos = 0
+        var player2Pos = 0
+
+//        if (player1Score >= 100) {
+//            rollText.text = "$player1Name wins!"
+//            player1Pos = 100;
+//            player1Score = 100;
+//
+//            rollBtn.isEnabled = false
+//            rollBtn.alpha = 0.5f
+//            rollBtn.setTextColor(Color.GRAY)
+//
+//
+//        }
+//        else if (player2Score >= 100) {
+//            rollText.text = "$player2Name wins!"
+//            player2Pos = 100;
+//            player2Score = 100;
+//
+//            rollBtn.isEnabled = false
+//            rollBtn.alpha = 0.5f
+//            rollBtn.setTextColor(Color.GRAY)
+//
+//        }
+
+
 
 
 
         rollBtn.setOnClickListener {
+
             val diceRoll = Random.nextInt(1, 7)
 
+            if (currentPlayer == 1) {
 
-            currentPos += diceRoll
-
-            val drawableResources = when (diceRoll){
-                1 -> R.drawable.dice1
-                2 -> R.drawable.dice2
-                3 -> R.drawable.dice3
-                4 -> R.drawable.dice4
-                5 -> R.drawable.dice5
-                else -> R.drawable.dice6
-            }
-            diceImage.setImageResource(drawableResources)
-
-
-            val boardSize = 10
+                val turnString = "$player2Name turns"
+                turnText.text = turnString
 
 
 
-            for(i in snakeHead.indices){
-                if(currentPos == snakeHead[i]){
-                    currentPos = snakeTail[i]
+                player1Pos += diceRoll
+                player1Score += diceRoll
+
+
+                val drawableResources = when (diceRoll) {
+                    1 -> R.drawable.dice1
+                    2 -> R.drawable.dice2
+                    3 -> R.drawable.dice3
+                    4 -> R.drawable.dice4
+                    5 -> R.drawable.dice5
+                    else -> R.drawable.dice6
                 }
-            }
+                diceImage.setImageResource(drawableResources)
 
-            for(i in ladderBottom.indices){
-                if(currentPos == ladderBottom[i]){
-                    currentPos = ladderTop[i]
+
+                val boardSize = 10
+
+
+
+                for (i in snakeHead.indices) {
+                    if (player1Pos == snakeHead[i]) {
+                        player1Pos = snakeTail[i]
+                    }
                 }
-            }
 
-            val rollString = "$player1Name rolled a $diceRoll. You are now in tile $currentPos"
-            rollText.text = rollString
-
-            if(currentPos >= 100)
-            {
-                rollText.text = "You win!"
-                currentPos = 100;
-
-            }
-
-        boardImage.post{
-
-            val boardWidth = boardImage.width
-            val boardHeight = boardImage.height
-
-            val direction = if((currentPos - 1) /  10 % 2 == 0) {
-                1
-            }
-            else{
-                -1
-            }
-
-            val xPosition = if(direction == 1){
-                ((currentPos - 1) % boardSize) * boardWidth / boardSize
+                for (i in ladderBottom.indices) {
+                    if (player1Pos == ladderBottom[i]) {
+                        player1Pos = ladderTop[i]
+                    }
                 }
+
+                val rollString = "$player1Name rolled a $diceRoll. You are now in tile $player1Pos"
+                rollText.text = rollString
+
+
+
+                boardImage.post {
+
+                    val boardWidth = boardImage.width
+                    val boardHeight = boardImage.height
+
+                    val direction = if ((player1Pos - 1) / 10 % 2 == 0) {
+                        1
+                    } else {
+                        -1
+                    }
+
+                    val xPosition = if (direction == 1) {
+                        ((player1Pos - 1) % boardSize) * boardWidth / boardSize
+                    } else {
+                        (boardSize - (player1Pos - 1) % boardSize - 1) * boardWidth / boardSize
+                    }
+
+                    val yPosition =
+                        ((boardSize + 2) - (player1Pos - 1) / boardSize) * boardHeight / boardSize
+
+                    player1Image.x = xPosition.toFloat()
+                    player1Image.y = yPosition.toFloat()
+
+                }
+                currentPlayer = 2
+            }
             else
             {
-                (boardSize - (currentPos - 1) % boardSize - 1) * boardWidth / boardSize
+                currentPlayer = 1
+                val turnString = "$player1Name turns"
+                turnText.text = turnString
+
+
+                player2Pos += diceRoll
+                player2Score += diceRoll
+
+
+                val drawableResources = when (diceRoll) {
+                    1 -> R.drawable.dice1
+                    2 -> R.drawable.dice2
+                    3 -> R.drawable.dice3
+                    4 -> R.drawable.dice4
+                    5 -> R.drawable.dice5
+                    else -> R.drawable.dice6
+                }
+                diceImage.setImageResource(drawableResources)
+
+
+                val boardSize = 10
+
+
+
+                for (i in snakeHead.indices) {
+                    if (player2Pos == snakeHead[i]) {
+                        player2Pos = snakeTail[i]
+                    }
+                }
+
+                for (i in ladderBottom.indices) {
+                    if (player2Pos == ladderBottom[i]) {
+                        player2Pos = ladderTop[i]
+                    }
+                }
+
+                val rollString = "$player2Name rolled a $diceRoll. You are now in tile $player2Pos"
+                rollText.text = rollString
+
+
+
+                boardImage.post {
+
+                    val boardWidth = boardImage.width
+                    val boardHeight = boardImage.height
+
+                    val direction = if ((player2Pos - 1) / 10 % 2 == 0) {
+                        1
+                    } else {
+                        -1
+                    }
+
+                    val xPosition = if (direction == 1) {
+                        ((player2Pos - 1) % boardSize) * boardWidth / boardSize
+                    } else {
+                        (boardSize - (player2Pos - 1) % boardSize - 1) * boardWidth / boardSize
+                    }
+
+                    val yPosition =
+                        ((boardSize + 2) - (player2Pos - 1) / boardSize) * boardHeight / boardSize
+
+                    player2Image.x = xPosition.toFloat()
+                    player2Image.y = yPosition.toFloat()
+
+                }
+
             }
 
-            val yPosition = ((boardSize + 2) - (currentPos - 1) / boardSize) * boardHeight / boardSize
-
-            player1Image.x = xPosition.toFloat()
-            player1Image.y = yPosition.toFloat()
 
         }
 
-        }
 
         return view
     }
+
     }
+
