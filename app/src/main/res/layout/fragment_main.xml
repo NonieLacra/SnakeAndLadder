@@ -12,14 +12,14 @@
         android:id="@+id/Btn1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="424dp"
         android:background="@drawable/btn_design"
         android:fontFamily="sans-serif-condensed"
         android:text="2 Players"
         android:textColor="#CAC4D0"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -56,6 +56,22 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Btn2" />
 
+    <Button
+        android:id="@+id/Btn4"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/btn_design"
+        android:fontFamily="sans-serif-condensed"
+        android:text="EXIT"
+        android:textColor="#CAC4D0"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Btn2" />
+
     <ImageButton
         android:id="@+id/winnersList"
         android:layout_width="57dp"
@@ -70,8 +86,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="313dp"
-        android:layout_height="313dp"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
         android:background="@color/md_theme_light_surfaceTint"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"

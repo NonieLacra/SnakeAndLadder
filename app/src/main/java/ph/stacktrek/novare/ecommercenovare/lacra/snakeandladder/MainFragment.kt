@@ -16,23 +16,30 @@ class MainFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_main, container, false)
-        val toFrag1Btn: Button = view.findViewById(R.id.Btn1)
-        val toFrag2Btn: Button = view.findViewById(R.id.Btn2)
-        val toFrag3Btn: Button = view.findViewById(R.id.Btn3)
+        val to2Player: Button = view.findViewById(R.id.Btn1)
+        val to3Player: Button = view.findViewById(R.id.Btn2)
+        val to4Player: Button = view.findViewById(R.id.Btn3)
+        val toExit: Button = view.findViewById(R.id.Btn4)
 
-        toFrag1Btn.setOnClickListener(){
+        to2Player.setOnClickListener(){
             val fragment = Fragment1()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragmentContainerView,fragment)?.commit()
         }
 
-        toFrag2Btn.setOnClickListener(){
+        to3Player.setOnClickListener(){
             val fragment = Fragment2()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragmentContainerView,fragment)?.commit()
         }
 
-        toFrag3Btn.setOnClickListener(){
+        to4Player.setOnClickListener(){
+            val fragment = player4()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.fragmentContainerView,fragment)?.commit()
+        }
+
+        toExit.setOnClickListener(){
             System.exit(1);
         }
 

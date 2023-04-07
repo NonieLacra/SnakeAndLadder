@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import android.widget.ImageButton
 
 
 class player4 : Fragment() {
@@ -17,9 +17,17 @@ class player4 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_player4, container, false)
+        val view = inflater.inflate(R.layout.fragment_2, container, false)
+        val toMainBtn2: ImageButton = view.findViewById(R.id.backBtn1)
+
+        toMainBtn2.setOnClickListener() {
+            val fragment = MainFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.fragmentContainerView, fragment)?.commit()
+        }
+
+        return view
+
     }
-
-
 
 }
