@@ -26,12 +26,14 @@ class Winnerslist : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentWinnerslistBinding.inflate(inflater, container, false)
+
+
+        binding.backButton.setOnClickListener(){
+            val fragment = MainFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.fragmentContainerView,fragment)?.commit()
+        }
         return binding.root
-//
-//        binding.backButton.setOnClickListener(){
-//            val goBack = Intent(activity, MainFragment::class.java)
-//            startActivity(goBack)
-//        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
