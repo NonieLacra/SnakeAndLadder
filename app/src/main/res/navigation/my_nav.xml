@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment1"
-        android:name="ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder.Fragment1"
+        android:name="ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder.TwoPlayerMenu"
         android:label="fragment_1"
         tools:layout="@layout/fragment_1" >
 
@@ -23,14 +23,14 @@
     </fragment>
     <fragment
         android:id="@+id/fragment2"
-        android:name="ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder.Fragment2"
+        android:name="ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder.ThreePlayerMenu"
         android:label="fragment_2"
         tools:layout="@layout/fragment_2" >
 
     </fragment>
     <fragment
         android:id="@+id/fragment3"
-        android:name="ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder.Fragment3"
+        android:name="ph.stacktrek.novare.ecommercenovare.lacra.snakeandladder.TwoPlayerGame"
         android:label="fragment_3"
         tools:layout="@layout/fragment_3" />
 </navigation>

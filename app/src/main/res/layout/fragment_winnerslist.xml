@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/md_theme_light_inversePrimary"
-    tools:context=".winnerslist">
+    tools:context=".Winnerslist">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -26,6 +26,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.237" />
 
+    <!--    <ImageButton-->
+<!--        android:id="@+id/back_button"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:background="@drawable/btn_design"-->
+<!--        android:src="?attr/actionModeCloseDrawable"-->
+<!--        app:layout_constraintHorizontal_bias="0.102"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="140dp"
@@ -33,22 +45,24 @@
         android:src="@drawable/winners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.059" />
+        app:layout_constraintVertical_bias="0.058" />
 
-    <ImageButton
-        android:id="@+id/backBtn1"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/btn_design"
-        android:src="?attr/actionModeCloseDrawable"
-        app:layout_constraintHorizontal_bias="0.102"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/winnersRecyclerView"
+        android:layout_width="228dp"
+        android:layout_height="295dp"
+        android:textSize="30dp"
+        android:textStyle="italic|bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.678"
 
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

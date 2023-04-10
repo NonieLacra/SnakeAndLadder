@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/md_theme_light_inversePrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment1">
+    tools:context=".TwoPlayerMenu">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -14,17 +14,17 @@
         android:id="@+id/playgamebtn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="532dp"
+
         android:background="@drawable/btn_design"
         android:fontFamily="sans-serif-condensed"
         android:text="Start Game"
         android:textColor="#FAF6F6"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/player2_field"
+        android:layout_marginTop="20dp"/>
 
     <EditText
         android:id="@+id/player1_field"
@@ -37,12 +37,11 @@
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:text="Player 1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        android:layout_marginTop="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418" />
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+         />
 
     <EditText
         android:id="@+id/player2_field"
@@ -55,32 +54,31 @@
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:text="Player 2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/player1_field"
-        app:layout_constraintVertical_bias="0.186" />
+        app:layout_constraintTop_toBottomOf="@id/player1_field"
+        android:layout_marginTop="20dp"
+         />
 
     <ImageButton
         android:id="@+id/backBtn1"
         android:layout_width="70dp"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/btn_design"
         android:src="?attr/actionModeCloseDrawable"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="276dp"
-        android:layout_height="148dp"
-        android:layout_marginTop="116dp"
-        android:src="@drawable/snakedesign"
-        app:layout_constraintHorizontal_bias="0.496"
+        android:layout_width="330dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

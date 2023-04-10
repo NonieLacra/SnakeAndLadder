@@ -7,18 +7,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+
 
 import kotlin.random.Random
 
-
-class Fragment3 : Fragment() {
+class TwoPlayerGame : Fragment() {
 
     private var player1Name: String? = null
     private var player2Name: String? = null
+
 
 
     override fun onCreateView(
@@ -27,6 +29,7 @@ class Fragment3 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_3, container, false)
+
 
 
         val diceImage = view.findViewById<ImageView>(R.id.dice)
@@ -80,6 +83,21 @@ class Fragment3 : Fragment() {
 
                 if(player1Score >= 100){
                     winnerDialog(player1Name.toString())
+
+                    val sharedPreferences = requireActivity().getSharedPreferences("winners", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    val winnersJson = sharedPreferences.getString("winners", "[]") ?: "[]"
+                    val winnersList = Gson().fromJson(winnersJson, object : TypeToken<MutableList<String>>() {}.type) as MutableList<String>
+                    winnersList.add(player1Name.toString())
+
+                    if (winnersList.size > 5) {
+                        winnersList.removeAt(0)
+                    }
+
+                    val updatedWinnersJson = Gson().toJson(winnersList)
+                    editor.putString("winners", updatedWinnersJson)
+                    editor.apply()
+
                 }
 
                 val drawableResources = when (diceRoll) {
@@ -157,6 +175,20 @@ class Fragment3 : Fragment() {
 
                 if(player2Score >= 100){
                     winnerDialog(player2Name.toString())
+
+                    val sharedPreferences = requireActivity().getSharedPreferences("winners", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    val winnersJson = sharedPreferences.getString("winners", "[]") ?: "[]"
+                    val winnersList = Gson().fromJson(winnersJson, object : TypeToken<MutableList<String>>() {}.type) as MutableList<String>
+                    winnersList.add(player2Name.toString())
+
+                    if (winnersList.size > 5) {
+                        winnersList.removeAt(0)
+                    }
+
+                    val updatedWinnersJson = Gson().toJson(winnersList)
+                    editor.putString("winners", updatedWinnersJson)
+                    editor.apply()
                 }
 
                 val drawableResources = when (diceRoll) {
@@ -232,6 +264,20 @@ class Fragment3 : Fragment() {
     }
 
     private fun winnerDialog(winnerName: String){
+
+//        val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+//        val winnersString = sharedPreferences.getString("Winners", null)
+//        val winners = winnersString?.split(",")?.toMutableList() ?: mutableListOf()
+//
+//
+//        val editor = sharedPreferences.edit()
+//        editor.putString("Winners", winners.joinToString(","))
+//        editor.apply()
+//
+
+
+
+
         val alertDialog = AlertDialog.Builder(requireContext())
             .setTitle("GAME WINNER")
             .setMessage("$winnerName Wins!")

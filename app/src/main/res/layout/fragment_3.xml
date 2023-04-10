@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/md_theme_light_inversePrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment3">
+    tools:context=".TwoPlayerGame">
 
     <ImageView
         android:id="@+id/boardImage"
@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.015" />
 
     <ImageView
         android:id="@+id/player1"
@@ -31,7 +31,7 @@
         app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731" />
+        app:layout_constraintVertical_bias="0.649" />
 
     <ImageView
         android:id="@+id/player2"
@@ -44,7 +44,7 @@
         app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731" />
+        app:layout_constraintVertical_bias="0.649" />
 
     <TextView
         android:id="@+id/rollResult"
@@ -164,6 +164,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.822" />
+
+    <ImageButton
+        android:id="@+id/backBtn1"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_design"
+        android:src="?attr/actionModeCloseDrawable"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
